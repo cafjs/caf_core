@@ -1,0 +1,53 @@
+{
+    "module": "ca_main",
+    "name" : "ca",
+    "description": "A generic Cloud Assistant\n Properties:\n ",
+    "env": {
+
+    },
+    "internal" : [
+        {
+            "module": "caf_session/plug_ca",
+            "name": "session_ca",
+            "description": "Manages all the sessions with clients\n Properties:\n <bcTimeout> Max seconds to reset the backchannel.\n",
+            "env" : {
+                "bcTimeout" : 8
+            }
+        },
+        {
+            "module": "plug_ca_inqueue",
+            "name": "inqMgr",
+            "description": "Manages a shared queue for incoming requests",
+            "env" : {
+
+            }
+        }
+    ],
+    "proxies" : [
+
+        {
+            "module": "proxy_inqueue",
+            "name": "inq",
+            "description": "Allows access to this CA  input queue",
+            "env" : {
+
+            }
+        },
+        {
+            "module": "caf_session/proxy",
+            "name": "session",
+            "description": "Provides information of the session of this incoming request",
+            "env" : {
+
+            }
+        }
+    ],
+    "handler": {
+        "module": "plug_ca_handler",
+        "name": "handler",
+        "description": "Handler object with all the app methods.",
+        "env" : {
+
+        }
+    }
+}

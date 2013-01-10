@@ -1,0 +1,18 @@
+{
+    "name": "caf_core",
+    "description": "Cloud Assistant Framework Core",
+    "version": "0.0.1",
+    "author": "Antonio Lain <antlai@cafjs.com>",
+    "dependencies": {
+        "express" : ">= 2.3.4 < 3.0.0",
+        "async" : ">=0.1.9",
+        "redis" : ">=0.6.0"
+    },
+    "main": "index",
+    "homepage": "http://www.cafjs.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cafjs/caf_core.git"
+    },
+    "engines": { "node": ">= 0.8.1 " }
+}
