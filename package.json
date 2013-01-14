@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "author": "Antonio Lain <antlai@cafjs.com>",
     "dependencies": {
-        "express" : ">= 2.3.4 < 3.0.0",
+        "express" : "2.X",
         "async" : ">=0.1.9",
         "redis" : ">=0.6.0"
     },
