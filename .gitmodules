@@ -1,4 +1,4 @@
 
 [submodule "public/enyo"]
 	path = public/enyo
-	url = https://github.com/cafjs/caf_enyo.git
+	url = ../caf_enyo.git
