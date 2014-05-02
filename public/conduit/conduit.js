@@ -97,7 +97,10 @@ limitations under the License.
  *   b.__fold__(acc, function(err, data) {
  *                          // data refers to `acc` with an entry for each
  *                          //  task (key is the given label or a unique string,
- *                          //        value is {err: <err>, data: <whatever>})
+ *                          //        value is {err: <err>, data: <whatever>,
+ *                          //                  meta: {name:string, args:[],
+ *                          //                         deps:[]}})
+ *                          // where meta just records call arguments
  *                         ...
  *   });
  *
@@ -526,7 +529,10 @@ limitations under the License.
                      throw new Error('undefined label' + JSON.stringify(data));
                  }
                  var cb1 = function(err, res) {
-                     acc[data.label] = {'err': err, 'data' : res};
+                     acc[data.label] = {err: err, data: res,
+                                        meta: {name: data.name,
+                                               args: data.args,
+                                               deps: data.deps}};
                      // res propagated with acc
                      cb(err);
                  };
@@ -541,7 +547,7 @@ limitations under the License.
          that.__fold__ = function(acc, cb) {
              var results = acc || {};
              if (that.__length__() !== 1) {
-                 throw new Error('Not fully resolved:' + that.__stringify__);
+                 throw new Error('Not fully resolved:' + that.__stringify__());
              }
              if (typeof behavior !== 'object') {
                  throw new Error('No behavior in fold.');
@@ -603,11 +609,15 @@ limitations under the License.
       */
      var parse = conduit.parse = function(str) {
          var c = JSON.parse(str);
-         var result = newInstance(c.methodNames);
-         c.tasks.reverse().forEach(function (x) {
-                                       result = result.__push__(x);
-                                   });
-         return result;
+         if (c && c.methodNames) {
+             var result = newInstance(c.methodNames);
+             c.tasks.reverse().forEach(function (x) {
+                                           result = result.__push__(x);
+                                       });
+             return result;
+         } else {
+             return null;
+         }
      };
 
 
