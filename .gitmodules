@@ -1,4 +1,0 @@
-
-[submodule "public/enyo"]
-	path = public/enyo
-	url = ../caf_enyo.git
