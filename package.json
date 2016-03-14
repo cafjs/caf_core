@@ -8,6 +8,7 @@
         "caf_security": "^0.2.0",
         "caf_redis": "^0.2.0",
         "caf_sharing": "^0.2.0",
+        "caf_pubsub": "^0.2.0",
         "caf_platform": "^0.2.0",
         "caf_session" : "^0.2.0",
         "caf_ca": "^0.2.0",
