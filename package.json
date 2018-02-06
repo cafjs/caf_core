@@ -1,7 +1,7 @@
 {
     "name": "caf_core",
     "description": "Cloud Assistant Framework Core",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "author": "Antonio Lain <antlai@cafjs.com>",
     "dependencies": {
         "caf_components": "^0.3.0",
@@ -16,6 +16,8 @@
     },
     "devDependencies": {
         "eslint": "^3.1.1",
+        "typescript": "^2.7.1",
+        "@types/node": "^9.4.0",
         "jsdoc": "^3.4.2"
     },
     "main": "index",
@@ -23,7 +25,8 @@
     "scripts": {
         "eslint" : "./node_modules/.bin/eslint .",
         "eslintfix" : "./node_modules/.bin/eslint --fix .",
-        "docs" : "rm -fr docs; mkdir -p docs; ./node_modules/.bin/jsdoc --pedantic -c ./conf.json -d docs lib/*.js --readme ./README.md --package ./package.json"
+        "docs" : "rm -fr docs; mkdir -p docs; ./node_modules/.bin/jsdoc --pedantic -c ./conf.json -d docs lib/*.js --readme ./README.md --package ./package.json",
+        "checktype" : "./node_modules/.bin/tsc"
     },
     "repository": {
         "type": "git",
