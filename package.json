@@ -15,7 +15,7 @@
         "caf_cli": "^0.3.0"
     },
     "devDependencies": {
-        "eslint": "^3.1.1",
+        "eslint": "^6.8.0",
         "typescript": "3.7.3",
         "@types/node": "^12.12.21",
         "jsdoc": "^3.4.2"
@@ -23,8 +23,8 @@
     "main": "index",
     "homepage": "http://www.cafjs.com",
     "scripts": {
-        "eslint" : "./node_modules/.bin/eslint .",
-        "eslintfix" : "./node_modules/.bin/eslint --fix .",
+        "eslint" : "./node_modules/.bin/eslint -c .eslintrc.js .",
+        "eslintfix" : "./node_modules/.bin/eslint -c .eslintrc.js --fix .",
         "docs" : "rm -fr docs; mkdir -p docs; ./node_modules/.bin/jsdoc --pedantic -c ./conf.json -d docs lib/*.js --readme ./README.md --package ./package.json",
         "checktype" : "./node_modules/.bin/tsc"
     },
