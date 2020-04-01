@@ -1,38 +1,38 @@
-# CAF.js (Cloud Assistant Framework)
+# Caf.js
 
 Co-design permanent, active, stateful, reliable cloud proxies with your web app and your gadgets.
 
-See http://www.cafjs.com
+See https://www.cafjs.com
 
-## CAF Core
+## Caf.js Core
 
-This repository provides the main CAF entry point, creating a framework instance for hosting CAs.
+This repository provides the main `Caf.js` entry point, creating a framework instance for hosting CAs.
 
-It exports the core packages, and an `init` function that initializes the framework.
+It exports the core packages and an `init` function that initializes the framework.
 
-For example, in a file called by default `ca_methods.js` (see `methodsFileName` property in config file `ca.json` {@link external:caf_ca})
+For example, in a file called by default `ca_methods.js` (see `methodsFileName` property in config file `ca.json` {@link external:caf_ca} to change the name)
 
 ```
-var caf = require('caf_core');
+const caf = require('caf_core');
 
 exports.methods = {
-    __ca_init__: function(cb) {
+    async __ca_init__() {
         this.state.counter = 0;
-        cb(null);
+        return [];
     },
-    hello: function(msg, cb) {
+    async hello(msg, cb) {
         this.$.log && this.$.log.debug('Got ' + msg);
         this.state.counter = this.state.counter + 1
-        cb(null, this.state.counter);
+        return [null, this.state.counter];
     }
 };
 
 caf.init(module);
 ```
 
-Note that the framework initialization, and the methods declaration, could be
-in separate files. However, the default is always that the methods declaration is in a file named `ca_methods.js`.
+Passing the `module` argument to `caf.init` simplifies loading resources with relative paths. For example, to find `ca++.json` or `framework++.json` in the same directory as your `ca_methods.js` file. See {@link external:caf_components} for details.
 
-It is just convenient to pack them together, and the module caching in `require` guarantees that we only initialize the framework once.
+Note that the framework initialization and the methods declaration could be
+in separate files. It is just convenient to pack them together, and the module caching in `require` guarantees that we only initialize the framework once.
 
-The `module` argument to `caf.init` simplifies loading resources with relative paths, see {@link external:caf_components}.
+However, the methods declaration should be in a file named `ca_methods.js`, unless we configure a different file name, as explained above.

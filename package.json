@@ -1,18 +1,19 @@
 {
     "name": "caf_core",
     "description": "Cloud Assistant Framework Core",
-    "version": "0.3.2",
+    "version": "0.4.0",
     "author": "Antonio Lain <antlai@cafjs.com>",
+    "license": "Apache-2.0",
     "dependencies": {
-        "caf_components": "^0.3.0",
-        "caf_security": "^0.3.0",
-        "caf_redis": "^0.3.0",
-        "caf_sharing": "^0.3.0",
-        "caf_pubsub": "^0.3.0",
-        "caf_platform": "^0.3.0",
-        "caf_session" : "^0.3.0",
-        "caf_ca": "^0.3.0",
-        "caf_cli": "^0.3.0"
+        "caf_components": "^0.4.0",
+        "caf_security": "^0.4.0",
+        "caf_redis": "^0.4.0",
+        "caf_sharing": "^0.4.0",
+        "caf_pubsub": "^0.4.0",
+        "caf_platform": "^0.4.0",
+        "caf_session" : "^0.4.0",
+        "caf_ca": "^0.4.0",
+        "caf_cli": "^0.4.0"
     },
     "devDependencies": {
         "eslint": "^6.8.0",
